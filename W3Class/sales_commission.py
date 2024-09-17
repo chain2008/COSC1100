@@ -12,15 +12,19 @@ HIGHT_RATE = 0.09
 LOW_SALE = 10000
 MEDIUM_SALE = 15000
 
-gross_sales = float(input("Enter input gross sales: "))
-if gross_sales < LOW_SALE:
-    rate = LOW_RATE
-else :
-    if gross_sales < MEDIUM_SALE:
-        rate = MID_RATE
-    else :
-        rate = HIGHT_RATE
-commission = gross_sales * rate
-top = math.ceil(commission)
-round_commission = round(commission)
-print(f"The commission is ${commission:9.4f}") #value:{width}.{precision}
+#https://www.w3schools.com/python/python_try_except.asp
+try:
+    gross_sales = float(input("Enter input gross sales: "))
+    if gross_sales < LOW_SALE:
+        rate = LOW_RATE
+    else:
+        if gross_sales < MEDIUM_SALE:
+            rate = MID_RATE
+        else:
+            rate = HIGHT_RATE
+    commission = gross_sales * rate
+    top = math.ceil(commission)
+    round_commission = round(commission)
+    print(f"The commission is ${commission:9.4f}")  # value:{width}.{precision}
+except (ValueError, TypeError):
+    print("Invalid input decimal number")
