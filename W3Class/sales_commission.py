@@ -23,8 +23,6 @@ try:
         else:
             rate = HIGHT_RATE
     commission = gross_sales * rate
-    top = math.ceil(commission)
-    round_commission = round(commission)
     print(f"The commission is ${commission:9.4f}")  # value:{width}.{precision}
 except (ValueError, TypeError):
     print("Invalid input decimal number")

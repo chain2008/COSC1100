@@ -22,8 +22,10 @@ try:
     scoops = kiddie_cones * KID_SCOOP + small_cones * SMALL_SCOOP + medium_cones * MEDIUM_SCOOP \
             + large_cones * LARGE_SCOOP
     cups = scoops * SCOOP_CUP
-    print(f"The one week ice cream sold are {cups} cups")
-except (ValueError, TypeError):
+    print(f"The one week ice cream sold are ${cups:9.4f} cups")
+except ValueError as exp:
+    print(f"Invalid input decimal number: {exp}")
+except TypeError:
     print("Invalid input decimal number")
 except Exception as exp:
     print(f"Unknown error: {exp}")
