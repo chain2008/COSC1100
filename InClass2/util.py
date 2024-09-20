@@ -7,18 +7,12 @@ from dateutil.relativedelta import relativedelta
 import constant
 import math
 
-COLLEGE = 'Durham College' # global constant
-semester = 'Fall 2024'  # global variable
-LIQUOR_AGE = 19
-DATE_FORMAT = '%Y-%m-%d'
-
-
 def liquor_age(birthday): # [missing-function-docstring]
     """Function printing python version."""
-    birthday = datetime.strptime(birthday, DATE_FORMAT)
+    birthday = datetime.strptime(birthday, constant.DATE_FORMAT)
     delta = relativedelta(datetime.now(), birthday)
 
-    return delta.years >= LIQUOR_AGE
+    return delta.years >= constant.LIQUOR_AGE
 
 def degrees_radians(degrees):
   return degrees * constant.PI / 180
