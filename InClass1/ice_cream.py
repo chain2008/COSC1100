@@ -11,11 +11,18 @@ MEDIUM_SCOOP = 2
 LARGE_SCOOP = 3
 NUM_ERROR = "The number must be positive"
 
+while True:
+    try:
+        #get kid cones from keyboard
+        kiddie_cones = int(input("Enter kiddie cones sold in one week: "))
+        #Responding to invalid data entry
+        if kiddie_cones <= 0:
+            raise ValueError(NUM_ERROR)
+        break
+    except ValueError as exp:
+        print(f"Invalid input decimal number: {exp}")
+
 try:
-    #get kid cones from keyboard
-    kiddie_cones = int(input("Enter kiddie cones sold in one week: "))
-    if kiddie_cones <= 0:
-        raise ValueError(NUM_ERROR)
     small_cones = int(input("Enter small cones: "))
     medium_cones = int(input("Enter medium cones: "))
     large_cones = int(input("Enter large cones: "))
