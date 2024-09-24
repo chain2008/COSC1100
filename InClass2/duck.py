@@ -4,6 +4,8 @@ Author: Cheng He
 Date: 2024-09-20
 Version: 1
 """
+import os
+from datetime import date
 
 NUM_ERROR = "The number must be positive"
 UNIT_ERROR = "Wrong unit, either i or c"
@@ -23,11 +25,16 @@ try: #input validation
     if duck_depth <= 0:
         raise ValueError(NUM_ERROR)
 
+    duck_height = float(input("Enter duck height: "))
+    if duck_height <= 0:
+        raise ValueError(NUM_ERROR)
+
     unit = input("Enter duck size unit(i for inch / c for centimetre): ")
     match unit:
         case "i":
             duck_width *= IN_CM
             duck_depth *= IN_CM
+            duck_height *= IN_CM
         case "c":
             pass
         case _:
@@ -40,4 +47,13 @@ except Exception as exp:
     print(f"Unknown error: {exp}")
 else:
     duckAmount = round(reservior_area*10000.0 / (duck_width*duck_depth))
-    print(f"We need {duckAmount} ducks")
+    duckVolumn = duck_width*duck_depth*duck_height*duckAmount/1000000
+    os.system('cls')
+    print("********    AI Hub Rubber Duck Logistic Report    ********")
+    print(f"Reservior Size is\t${reservior_area:.2f} m\u00b2")
+    print(f"Duck Size:\t\t{duck_width}cm x {duck_depth}cm")
+    print(f"Duck amount:\t\t{duckAmount}")
+    print(f"Price for one duck:\t${duckAmount:.2f} CAD")
+    print(f"Price for all ducks:\t${duckAmount:.2f} CAD")
+    print(f"Shippment package:\t{duckVolumn:.2f} m\u00b3")
+    print(f"**********    {date.today()} Reported by Cheg He    **********")
