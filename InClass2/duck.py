@@ -48,12 +48,16 @@ except Exception as exp:
 else:
     duckAmount = round(reservior_area*10000.0 / (duck_width*duck_depth))
     duckVolumn = duck_width*duck_depth*duck_height*duckAmount/1000000
+    # calculate duck price here
+    duckPrice = 1.71
+    totalPrice = round(duckAmount * duckPrice,2)
     os.system('cls')
     print("********    AI Hub Rubber Duck Logistic Report    ********")
+    #https://en.wikipedia.org/wiki/List_of_Unicode_characters
     print(f"Reservior Size is\t${reservior_area:.2f} m\u00b2")
-    print(f"Duck Size:\t\t{duck_width}cm x {duck_depth}cm")
+    print(f"Duck Size:\t\t{duck_width}cmW x {duck_height}cmH x {duck_depth}cmD")
     print(f"Duck amount:\t\t{duckAmount}")
-    print(f"Price for one duck:\t${duckAmount:.2f} CAD")
-    print(f"Price for all ducks:\t${duckAmount:.2f} CAD")
+    print(f"Price for one duck:\t${duckPrice} CAD")
+    print(f"Price for all ducks:\t${totalPrice} CAD")
     print(f"Shippment package:\t{duckVolumn:.2f} m\u00b3")
     print(f"**********    {date.today()} Reported by Cheg He    **********")
