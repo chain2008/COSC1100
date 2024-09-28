@@ -19,12 +19,15 @@ try:
     #Responding to invalid data entry
     if gross_sales <= 0:
         raise ValueError(NUM_ERROR)
-    if gross_sales < LOW_SALE:
-        rate = LOW_RATE
-    elif gross_sales < MEDIUM_SALE:
-        rate = MID_RATE
     else:
-        rate = HIGHT_RATE
+
+        if gross_sales < LOW_SALE:
+            rate = LOW_RATE
+        elif gross_sales < MEDIUM_SALE:
+            rate = MID_RATE
+        else:
+            rate = HIGHT_RATE
+
     commission = gross_sales * rate
     print(f"The commission is ${commission:9.4f}")  # value:{width}.{precision}
 except ValueError as exp:
