@@ -69,7 +69,7 @@ try: #input validation
         unit_price = PRICE6
     else:
         unit_price = PRICE7
-    total_price = round(duck_amount * unit_price,2)    
+    total_price = round(duck_amount * unit_price,2)
     #generate output
     prt = input("Do you want to print to file? Yes/No:")
     if prt.find("Y")>=0 or prt.find("y")>=0 :
