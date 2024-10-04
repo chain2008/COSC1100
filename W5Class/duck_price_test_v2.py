@@ -1,8 +1,8 @@
 duck_amount = int(input("duck amount: "))
-duck_quality = (150,250,500,1000,2500,5000)
+duck_qualities = (150,250,500,1000,2500,5000)
 duck_unit_prices = (2.95,2.67,2.37,2.07,1.88,1.71,1.51)
 item_index = 0
-for quality in duck_quality:
+for quality in duck_qualities:
     if duck_amount <= quality:
         break
     item_index += 1

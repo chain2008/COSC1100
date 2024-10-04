@@ -20,9 +20,10 @@ try:
     while not valid_input:
         try:
             gross_sales = float(input("Enter input gross sales: "))
-            if gross_sales <= 0 :
-                raise ValueError(NUM_ERROR)
-            valid_input = True
+            if gross_sales > 0 :
+                valid_input = True
+            else:
+                print(NUM_ERROR)
         except ValueError as exp:
             print(f"Invalid input decimal number: {exp}")
         except Exception as exp:
