@@ -9,13 +9,9 @@ import os
 
 menu = "**** John's HotDog ****\n" + \
         "Enter your choice: \n"
-TRADITIONAL = 0
-VEGGIE = 1
-CURRY_HOT = 2
-DOG_TYPE_COUNT = 3
-
-DOGS = ("Traditional","Veggie","Curry Hot")
-dog_sales = [0,0,0]
+#https://en.wikipedia.org/wiki/List_of_hot_dogs#:~:text=A%20hot%20dog%20is%20a%20type%20of%20cooked%20sausage,%20traditionally
+DOGS = ("Traditional","Veggie","Curry Hot", "Spicy", "Bagel","Corn" )
+dog_sales = [0,0,0,0,0,0]
 run = True
 
 item_number = 1
@@ -27,25 +23,27 @@ menu += "0 - Exit\n->"
 
 while run:
     os.system('cls')
-    choice = input(menu)
-    match choice:
-        case "1":
-            dog_sales[DOGS.index("Traditional")] += int(input("Enter Traditional Dog Sales: "))
-        case "2":
-            dog_sales[DOGS.index("Veggie")] += int(input("Enter Veggie Dog Sales: "))
-        case "3":
-            dog_sales[DOGS.index("Curry Hot")] += int(input("Enter Curry Hot Dog Sales: "))
-        case "4":
-            total = 0
-            for sale in dog_sales:
-                total += sale
-            os.system('cls')
-            print("**** John's HotDog ****")
-            for item in range(DOG_TYPE_COUNT):
-                print(f"{DOGS[item]} Dog\t{dog_sales[item]}\t{dog_sales[item]/total:.1%}")
-            print(f"Total\t\t{total}\tPercentage")
-            run = False
-        case "0":
-            run = False
-        case _:
+    choice = int(input(menu))
+    dog_choice_count = len(DOGS)
+    if choice == 0:
+        run = False
+    elif choice == dog_choice_count+1:
+        total = 0
+        for sale in dog_sales:
+            total += sale
+        os.system('cls')
+        print("**** John's HotDog ****")
+        for item in DOGS:
+            dog_sale = dog_sales[DOGS.index(item)]
+            print(f"{item} Dog\t{dog_sale}\t{dog_sale/total:.1%}")
+        print(f"Total\t\t{total}\tPercentage")
+        run = False
+    else:
+        good_item = False
+        for item_choice in range(dog_choice_count):
+            if choice-1 == item_choice:
+                dog_sales[item_choice] += int(input(f"Enter {DOGS[item_choice]} Dog Sales: "))
+                good_item = True
+                break
+        if not good_item:
             print("Wrong input")
