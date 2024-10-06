@@ -31,10 +31,9 @@ while run:
     match choice:
         case "1":
             #add traditional dog
-            pass
+            dog_sales[DOGS.index("Traditional")] += int(input("Enter Traditional Dog Sales: "))
         case "2":
-            #add veggie dog
-            pass
+            dog_sales[DOGS.index("Veggie")] += int(input("Enter Veggie Dog Sales: "))
         case "3":
             dog_sales[CURRY_HOT] += int(input("Enter Curry Hot Dog Sales: "))
         case "4":
@@ -43,7 +42,10 @@ while run:
                 total += sale
             os.system('cls')
             #print out tally
-
+            print("**** John's HotDog ****")
+            for item in range(DOG_TYPE_COUNT):
+                print(f"{DOGS[item]} Dog\t{dog_sales[item]}\t{dog_sales[item]/total:.1%}")
+            print(f"Total\t\t{total}\tPercentage")
             run = False
         case "0":
             run = False
