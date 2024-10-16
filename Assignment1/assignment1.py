@@ -7,7 +7,7 @@ Version: 1
 import os
 import math
 NUM_ERROR = "The number must be positive"
-ENTRY_ERROR = "ENTRY ERROR"
+ENTRY_ERROR = "Error input, number should be between 8 - 24"
 diameter_config = (8,12,14,16,20,24)
 slice_config = (0,(6,),(6,8),(6,8,10),(6,8,10,12),(6,8,10,12,16),0)
 
@@ -32,7 +32,10 @@ while True:
         if diameter < diameter_setting:
             break
         item_index += 1
-    slice_cuts = slice_config[item_index]
+    if diameter == diameter_config[len(diameter_config)-1]:
+        slice_cuts = slice_config[item_index-1]
+    else:
+        slice_cuts = slice_config[item_index]
 
     if slice_cuts == 0:
         print(ENTRY_ERROR)
