@@ -17,6 +17,8 @@ for item in this_set:
     print(item, end=" ")
 #at next run, the order will be changed """
 
+#set implementation
+#https://www.geeksforgeeks.org/introduction-to-set-data-structure/
 #set operation
 #https://www.geeksforgeeks.org/set-operations/
 cosc1100 = {"Joe","Mike","Randy","Mary"}
