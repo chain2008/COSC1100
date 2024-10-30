@@ -33,18 +33,18 @@ while True:
             print(f"Unknown error: {exp}")
 
     slice_cuts = 0
-    for diameter_setting in diameter_config:
-        if diameter < diameter_setting:
-            slice_cuts = diameter_config[diameter_setting]
+    for diameter_setting in diameter_config.items():
+        if diameter < diameter_setting[0]:
+            slice_cuts = diameter_setting[1]
             break
 
-    if diameter == diameter_setting:
-        slice_cuts = diameter_config[diameter_setting]
+    if diameter == diameter_setting[0]:
+        slice_cuts = diameter_setting[1]
 
     if slice_cuts == 0:
         print(ENTRY_ERROR)
     else:
         print(f"Pizza Diameter: {diameter}\"")
         area =  math.pi * pow(diameter/2,2)
-        for slice in slice_cuts:
-            print(f"Cut in {slice} results in an area of {area/slice:.2f}\" per slice")
+        for slice_cut in slice_cuts:
+            print(f"Cut in {slice_cut} results in an area of {area/slice_cut:.2f}\" per slice")
