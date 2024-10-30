@@ -7,6 +7,7 @@ for item in cosc1100_grade:
     print(item, end=" ")
     print(cosc1100_grade[item])
 
+print(cosc1100_grade.keys())
 cosc1100 = set(cosc1100_grade.keys())
 cosc1200 = set(cosc1200_grade.keys())
 both_course = cosc1100 & cosc1200
