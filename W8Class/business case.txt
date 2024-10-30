@@ -1,0 +1,14 @@
+We have two courses with the following students
+
+cosc1100 
+"Joe","Mike","Randy","Mary","Stephen"
+
+cosc1200
+"Keven","Mike","Julie","Mary"
+
+Could you tell me those students who take both courses?
+
+Could you tell me those students who only take cosc1100?
+we need remove students who take both courses from cosc1100
+
+Could you tell me all the students?

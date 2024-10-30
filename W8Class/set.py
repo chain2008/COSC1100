@@ -21,13 +21,18 @@ for item in this_set:
 #https://www.geeksforgeeks.org/introduction-to-set-data-structure/
 #set operation
 #https://www.geeksforgeeks.org/set-operations/
-cosc1100 = {"Joe","Mike","Randy","Mary"}
+
+#We have two courses with the following students
+cosc1100 = {"Joe","Mike","Randy","Mary","Stephen"}
 cosc1200 = {"Keven","Mike","Julie","Mary"}
-both_course = cosc1100 & cosc1200
+#Could you tell me those students who take both courses?
+both_course = cosc1100.intersection(cosc1200) #cosc1100 & cosc1200
 print(both_course)
-only_1200 = cosc1200 - both_course
-print(only_1200)
+
+#Could you tell me those students who only take cosc1100?
 only_1100 = cosc1100 - both_course
 print(only_1100)
-all_students = cosc1100 | cosc1200
+
+#Could you tell me all the students?
+all_students = cosc1100.union(cosc1200) #cosc1100 | cosc1200
 print(all_students)
