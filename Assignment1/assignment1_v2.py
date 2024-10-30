@@ -8,7 +8,7 @@ import os
 import math
 NUM_ERROR = "The number must be positive"
 ENTRY_ERROR = "Error input, number should be between 8 - 24"
-diameter_config = { 
+diameter_config = {
     8:0,
     12:(6,),
     14:(6,8),
@@ -33,13 +33,13 @@ while True:
             print(f"Unknown error: {exp}")
 
     slice_cuts = 0
-    if diameter == list(diameter_config.keys())[-1]:
-        slice_cuts = diameter_config[diameter]
-    else:
-        for diameter_setting in diameter_config:
-            if diameter < diameter_setting:
-                slice_cuts = diameter_config[diameter_setting]
-                break
+    for diameter_setting in diameter_config:
+        if diameter < diameter_setting:
+            slice_cuts = diameter_config[diameter_setting]
+            break
+
+    if diameter == diameter_setting:
+        slice_cuts = diameter_config[diameter_setting]
 
     if slice_cuts == 0:
         print(ENTRY_ERROR)
