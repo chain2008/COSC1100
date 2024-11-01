@@ -2,7 +2,7 @@
 Assignment1: Pizza
 Author: Cheng He
 Date: 2024-10-14
-Version: 1
+Version: 2
 """
 import os
 import math
@@ -37,7 +37,7 @@ while True:
         if diameter < diameter_setting[0]:
             slice_cuts = diameter_setting[1]
             break
-
+#this is for the case of 24 needed to be included
     if diameter == diameter_setting[0]:
         slice_cuts = diameter_setting[1]
 

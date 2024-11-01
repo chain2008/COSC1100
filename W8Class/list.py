@@ -17,6 +17,10 @@ print(os_list) """
 os_list2 = ["apple", "banana", "cherry"]
 print(f"type os_list2: {type(os_list2)}")
 for item in os_list2:
+    item = "orange"
+    print(item, end=" ")
+print("\r")
+for item in os_list2:
     print(item, end=" ")
 print("\n")
 print(f"first item: {os_list2[0]}")
