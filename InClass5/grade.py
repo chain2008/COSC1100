@@ -47,6 +47,6 @@ for item in first_tests:
     first_test_score += item * TEST_WEIGHTING
 
 total = CLASS_WEIGHTING * (len(pre_classes)+len(in_classes)) + TEST_WEIGHTING * len(first_tests)
-grade = (pre_class_score+in_class_score+first_test_score)/total    
+grade = (pre_class_score+in_class_score+first_test_score)/total
 
 print(grade)
