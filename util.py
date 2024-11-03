@@ -1,7 +1,15 @@
 """Module utlities"""
 
-def get_input(messge, return_type):
-    """to get input from user"""
+def get_input(messge:str, return_type:str):
+    """
+    https://peps.python.org/pep-0257/
+
+    to get input from user.
+
+    Keyword arguments:
+    message(str) -- message shown on user input. 
+    return_type(str) -- "int" | "float".
+    """
     while True:
         try:
             match return_type:
