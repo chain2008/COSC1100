@@ -1,3 +1,11 @@
+"""
+In Class 5: Grade
+Author: Cheng He
+Date: 2024-09-20
+Version: 2
+"""
+import sys
+import os
 
 CLASS_WEIGHTING = 3
 TEST_WEIGHTING = 6

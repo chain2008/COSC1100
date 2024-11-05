@@ -18,6 +18,6 @@ def get_input(messge:str, return_type:str):
                 case "float":
                     return float(input(messge))
                 case _:
-                    input(messge)
+                    return input(messge)
         except Exception as exp:
             print(exp)

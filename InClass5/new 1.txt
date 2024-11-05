@@ -4,8 +4,16 @@
 
 grade 83
 
-Benjamin St-Onge
+
 90, 70, 80, 80
 100,100, 100, 100
 76, 99
 grade 89
+
+there are 2 middle tests
+
+you should use constant in the place of 3
+
+max(1, max(pre_classes + in_classes + first_tests))
+unnecessary error
+you can google on weighted average
