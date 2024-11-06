@@ -6,7 +6,7 @@ Version: 1
 """
 import base3cipher
 
-text = "This is plain text"
+text = "AAAAAAAAAAAAABBBBBBBBBCCCCCCCCCCCCCEEEEEEEEEEEEFFFFFFFFFF"
 txt_length = len(text)
 key = base3cipher.gen_key(txt_length)
 cipher_text = ""

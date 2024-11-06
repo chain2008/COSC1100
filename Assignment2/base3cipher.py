@@ -9,8 +9,9 @@ LENGTH = 3
 
 def base3_cipher(letter, key):
     # Convert the letter to its corresponding ASCII code.
-    ascii_code = ord(letter.upper()) - ASCII_A
-    if ascii_code < 0 or ascii_code > 26:
+    ascii_code = ord(letter.upper()) - ASCII_A + 1
+    #ascii_code = ord(letter.upper()) - ASCII_A
+    if ascii_code <= 0 or ascii_code > 26:
         return letter
     # Convert the ASCII code to base 3 and store digits in a list.
     digit_list = []
@@ -38,7 +39,8 @@ def base3_cipher(letter, key):
         (BASE * BASE) + digit_list[1] * (BASE) + digit_list[2]
 
     # Return the output as a single letter.
-    ret = chr(decimal_value + ASCII_A )
+    ret = chr(decimal_value + ASCII_A - 1)
+    #ret = chr(decimal_value + ASCII_A)
     return ret
 
 def gen_key(length):
