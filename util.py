@@ -1,6 +1,6 @@
 """Module utlities"""
 
-def get_input(messge:str, return_type:str):
+def get_input(messge:str, return_type:str, validate = None):
     """
     https://peps.python.org/pep-0257/
 
@@ -14,10 +14,13 @@ def get_input(messge:str, return_type:str):
         try:
             match return_type:
                 case "int":
-                    return int(input(messge))
+                    ret = int(input(messge))
                 case "float":
-                    return float(input(messge))
+                    ret = float(input(messge))
                 case _:
-                    return input(messge)
+                    ret = input(messge)
+            if validate != None and validate(ret) == False:
+                raise ValueError("error validation")
+            return ret
         except Exception as exp:
             print(exp)

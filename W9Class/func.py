@@ -2,6 +2,7 @@
 # Python Built in Functions
 # https://www.w3schools.com/python/python_ref_functions.asp
 
+#https://en.wikipedia.org/wiki/Function_overloading
 def funciton1():
     print("You have no child")
 
@@ -30,8 +31,8 @@ def function2(*kids):
     #parameters are accessed by their index
     print(f"You have {len(kids)} children")
     print("The youngest child is " + kids[2])
-
-function2("Emil", "Tobias", "Linus")
+child3 = "Linus"
+function2("Emil", "Tobias", child3)
 
 def function3(**kid):
     """This way the function will receive a dictionary of arguments, 
@@ -64,6 +65,7 @@ tri_recursion(6)
 
 # https://www.w3schools.com/python/ref_func_slice.asp
 # slice(start, end, step)
+# slice(end)
 a = ("a", "b", "c", "d", "e", "f", "g", "h")
 x = slice(2)
 print(a[x])

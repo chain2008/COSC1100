@@ -22,9 +22,9 @@ def base3_cipher(letter, key):
         # Force integer division.
         ascii_code = ascii_code // BASE
 
-      # Add leading zeros (if necessary) to make it 3 digits long.
-        while len(digit_list) < LENGTH:
-            digit_list.insert(0, 0)
+    # Add leading zeros (if necessary) to make it 3 digits long.
+    while len(digit_list) < LENGTH:
+        digit_list.insert(0, 0)
 
     # Shuffle the first and nth digits by swapping the values in the list.
     # Note that key is a parameter to this function.
@@ -38,7 +38,7 @@ def base3_cipher(letter, key):
         (BASE * BASE) + digit_list[1] * (BASE) + digit_list[2]
 
     # Return the output as a single letter.
-    ret = chr(decimal_value + ASCII_A)
+    ret = chr(decimal_value + ASCII_A )
     return ret
 
 def gen_key(length):

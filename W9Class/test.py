@@ -1,10 +1,8 @@
-def funciton1():
-    print("You have no child")
+#https://www.w3schools.com/python/ref_func_map.asp
+def myfunc(a, b):
+    return a +"_"+b
+x = map(myfunc, ('apple', 'banana', 'cherry'), ('orange', 'lemon', 'pineapple'))
+print(x)
 
-def function1(child3, child2, child1):
-    #You can also send arguments with the key = value syntax.
-    #This way the order of the arguments does not matter.
-    print(f"Your children are {child1}, {child2}, {child3}")
-
-function1(child2 = "Tobias", child1 = "Emil", child3 = "Linus")
-funciton1()
+#convert the map into a list, for readability:
+print(list(x))
