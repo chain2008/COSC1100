@@ -2,7 +2,7 @@
 Assignment1: Pizza
 Author: Cheng He
 Date: 2024-10-14
-Version: 3
+Version: 1
 """
 import os
 import math

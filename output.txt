@@ -1,0 +1,16 @@
+
+
+
+
+********    AI Hub Rubber Duck Logistic Report    ********
+Reservior Size is    $10.00 m²
+Duck Size:           5.08cm x 7.62cm
+Duck amount:         2583
+Price for one duck:  $1.71 CAD
+Price for all ducks: $4416.93 CAD
+Shippment package:   1.02 m³
+**********    2024-11-12 Reported by Cheg He    **********
+
+
+
+
