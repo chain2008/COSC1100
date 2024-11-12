@@ -1,6 +1,6 @@
 """Module utlities"""
 
-def get_input(messge:str, return_type:str, validate = None):
+def get_input(messge:str, return_type:str, validate:callable):
     """
     https://peps.python.org/pep-0257/
 
@@ -9,6 +9,7 @@ def get_input(messge:str, return_type:str, validate = None):
     Keyword arguments:
     message(str) -- message shown on user input. 
     return_type(str) -- "int" | "float".
+    validate -- validation function.
     """
     while True:
         try:

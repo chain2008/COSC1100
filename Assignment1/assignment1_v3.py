@@ -2,30 +2,24 @@
 Assignment1: Pizza
 Author: Cheng He
 Date: 2024-10-14
-Version: 1
+Version: 3
 """
 import os
 import math
+import util
+
 NUM_ERROR = "The number must be positive"
 ENTRY_ERROR = "Error input, number should be between 8 - 24"
 diameter_config = (8,12,14,16,20,24)
 slice_config = (0,(6,),(6,8),(6,8,10),(6,8,10,12),(6,8,10,12,16),0)
 
+def validate(value):
+    return value >= 0
+
 while True:
-    valid_input = False
-    while not valid_input:
-        try:
-            diameter = float(input("Please enter the diameter of your pizza (0 to end program): "))
-            if diameter == 0 :
-                exit(0)
-            elif diameter < 0:
-                print(NUM_ERROR)
-            else:
-                valid_input = True
-        except ValueError as exp:
-            print(f"Invalid input decimal number: {exp}")
-        except Exception as exp:
-            print(f"Unknown error: {exp}")
+    diameter = util.get_input("Please enter the diameter of your pizza (0 to end program): ", "float", validate)
+    if diameter == 0 :
+        exit(0)
 
     item_index = 0
     for diameter_setting in diameter_config:
