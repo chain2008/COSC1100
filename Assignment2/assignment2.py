@@ -11,7 +11,7 @@ import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import util
-import Assignment2.cipher as cipher
+import cipher
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
