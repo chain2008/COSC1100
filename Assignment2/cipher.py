@@ -16,8 +16,7 @@ def base3_cipher(letter, key):
     digit_list = decimal_base(ascii_code, BASE)
 
     # Add leading zeros (if necessary) to make it 3 digits long.
-    while len(digit_list) < LENGTH:
-        digit_list.insert(0, 0)
+    padding(digit_list,LENGTH,0)
 
     # Shuffle the first and nth digits by swapping the values in the list.
     # Note that key is a parameter to this function.
@@ -55,3 +54,14 @@ def base_decimal(base, digit_list):
     decimal_value = digit_list[0] * \
         (base * base) + digit_list[1] * (base) + digit_list[2]
     return decimal_value
+
+def padding(digit_list, length, location = -1):
+    """padding digiit_list with 0 to length
+    location: 0 padding at front, -1 padding at end
+    """
+    if location == 0:
+        while len(digit_list) < LENGTH:
+            digit_list.insert(0, 0)
+    else:
+        while len(digit_list) < LENGTH:
+            digit_list.append(0)

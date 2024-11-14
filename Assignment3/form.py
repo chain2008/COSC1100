@@ -1,6 +1,10 @@
 import tkinter as tk
 from tkinter import ttk
 
+window = None
+login_button = None
+user_name = tk.StringVar()
+
 def center(window,width,height):
     # get the screen dimension
     screen_width = window.winfo_screenwidth()
@@ -14,6 +18,8 @@ def center(window,width,height):
     window.geometry(f'{width}x{height}+{center_x}+{center_y}')
 
 def layout(window):
+    global login_button
+    global username_entry
     # configure the grid
     window.columnconfigure(0, weight=1)
     window.rowconfigure(1, weight=3)
@@ -22,7 +28,7 @@ def layout(window):
     username_label = ttk.Label(window, text="Username:")
     username_label.grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
 
-    username_entry = ttk.Entry(window)
+    username_entry = ttk.Entry(window, textvariable=user_name)
     username_entry.grid(column=1, row=0, sticky=tk.E, padx=5, pady=5)
 
     # password
