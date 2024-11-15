@@ -38,6 +38,9 @@ def gen_key(length):
     return key
 
 def decimal_base(number,base):
+    """convert decimal number into base digit_list
+    example: decimal(5,3) return [1,2]
+    """
     digit_list = []
     while number > 0:
         # Get the remainder from dividing the code by 3.
@@ -49,6 +52,9 @@ def decimal_base(number,base):
     return digit_list
 
 def base_decimal(base, digit_list):
+    """convert base digit_list to decimal
+    example: base_decimal(3,[1,2]) return 5
+    """
     decimal_value = 0
     # Now decode from ASCII which will result in an encoded letter.
     decimal_value = digit_list[0] * \
@@ -58,6 +64,7 @@ def base_decimal(base, digit_list):
 def padding(digit_list, length, location = -1):
     """padding digiit_list with 0 to length
     location: 0 padding at front, -1 padding at end
+    example: padding([1,2],3) return [0,1,2]
     """
     if location == 0:
         while len(digit_list) < LENGTH:
