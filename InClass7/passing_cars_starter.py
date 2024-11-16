@@ -8,6 +8,7 @@ import tkinter as tk
 from tkinter import ttk
 from idlelib.tooltip import Hovertip
 
+MINUTES_PER_HOUR = 60
 WINDOW_WIDTH = 300
 WINDOW_HEIGHT = 300
 
@@ -21,8 +22,10 @@ window.minsize(width = WINDOW_MIN_WIDTH, height = WINDOW_MIN_HEIGHT)
 
 window.title("Should I Pass?")
 
-entry_speed_1 = ttk.Entry(window, width=30) #30 characters
-entry_speed_2 = ttk.Entry(window, width=30) #30 characters
+speed_1 = tk.StringVar()
+speed_2 = tk.StringVar()
+entry_speed_1 = ttk.Entry(window, textvariable=speed_1, width=30) #30 characters
+entry_speed_2 = ttk.Entry(window, textvariable=speed_2, width=30) #30 characters
 label_output = ttk.Label(window)
 entry_speed_1.pack()
 entry_speed_2.pack()
@@ -30,11 +33,10 @@ label_output.pack()
 
 def calculate(event= None):
     try:
-        MINUTES_PER_HOUR = 60
         # Get the value from entry_speed_1 and treat it as a number.
-        speed_one = float(entry_speed_1.get())
+        speed_one = float(speed_1.get())
         # Get the value from entry_speed_2 and treat it as a number.
-        speed_two = float(entry_speed_2.get())
+        speed_two = float(speed_2.get())
 
         low_speed = min((speed_one, speed_two))
         high_speed = max((speed_one, speed_two))
@@ -43,17 +45,19 @@ def calculate(event= None):
 
         speed_difference_seconds = speed_difference / MINUTES_PER_HOUR
 
-        label_output.configure(text = "Going from " + str(round(low_speed, 1)) + "km/h to " + str(round(high_speed, 1)) + \
-                               "km/h can gain you " + str(round(speed_difference_seconds, 2)) + " kilometres per minute.")
-        
+        label_output.configure(text = "Going from " + str(round(low_speed, 1)) + \
+            "km/h to " + str(round(high_speed, 1)) + \
+            "km/h can gain you " + str(round(speed_difference_seconds, 2)) + \
+            " kilometres per minute.")
+
     # If they don’t both have numbers:
     except:
         # Show an error message in the output labels
         label_output.configure(text = "Error: speed entries must be numeric.")
 
 def reset():
-    entry_speed_1.delete(0, END)
-    entry_speed_2.delete(0, END)
+    speed_1.set("")
+    speed_2.set("")
     label_output.configure(text = "")
     entry_speed_1.focus()
 
@@ -68,11 +72,17 @@ def reset():
 # Add hotkey support.
 # Anything else?
 
-btn = ttk.Button(
+ttk.Button(
    window,
    text="Calculate",
    compound=tk.LEFT,
    command=calculate
+).pack()
+ttk.Button(
+   window,
+   text="Reset",
+   compound=tk.LEFT,
+   command=reset
 ).pack()
 
 window.mainloop()
