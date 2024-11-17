@@ -8,13 +8,13 @@ def create_input_frame(container):
 
     # grid layout for the input frame
     frame.columnconfigure(0, weight=1)
-    #frame.columnconfigure(0, weight=3)
+    frame.columnconfigure(1, weight=3)
 
     # Find what
     ttk.Label(frame, text='Find what:').grid(column=0, row=0, sticky=tk.W)
-    keyword = ttk.Entry(frame, width=30)
+    keyword = ttk.Entry(frame)
     keyword.focus()
-    keyword.grid(column=1, row=0, sticky=tk.W)
+    keyword.grid(column=1, row=0, sticky="nsew")
 
     # Replace with:
     ttk.Label(frame, text='Replace with:').grid(column=0, row=1, sticky=tk.W)
@@ -79,10 +79,10 @@ def create_main_window():
     root.columnconfigure(1, weight=1)
 
     input_frame = create_input_frame(root)
-    input_frame.grid(column=0, row=0)
+    input_frame.grid(column=0, row=0, sticky="nsew")
 
     button_frame = create_button_frame(root)
-    button_frame.grid(column=1, row=0)
+    button_frame.grid(column=1, row=0, sticky="nsew")
 
     root.mainloop()
 
