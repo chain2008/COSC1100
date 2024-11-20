@@ -39,9 +39,8 @@ def function3(**kid):
     """This way the function will receive a dictionary of arguments, 
     and can access the items accordingly"""
     print("His last name is " + kid["lname"])
-
 last_name = "Refsnes"
-function3(fname = "Tobias", lname = last_name)
+function3(fname="Tobias", lname=last_name)
 
 def function4(food):
     """object as parameter"""

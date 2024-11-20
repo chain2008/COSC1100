@@ -1,23 +1,26 @@
+"""
+demo hot key
+"""
 import tkinter as tk
 from tkinter import ttk
-from tkinter.messagebox import showinfo
+from tkinter import messagebox
 
 # root window
 root = tk.Tk()
-root.geometry("300x150")
+root.geometry("300x250")
 #root.resizable(False, False)
 root.title('Sign In')
 
 # store email address and password
 email = tk.StringVar()
 password = tk.StringVar()
-
+number = tk.DoubleVar()
 
 def login_clicked(event=None):
     """ callback when the login button clicked
     """
-    msg = f'You entered email: {email.get()} and password: {password.get()}'
-    showinfo(
+    msg = f'You entered email: {email.get()}, password: {password.get()}, Double: {number.get()}'
+    messagebox.showinfo(
         title='Information',
         message=msg
     )
@@ -26,7 +29,6 @@ def login_clicked(event=None):
 # Sign in frame
 signin = ttk.Frame(root)
 signin.pack(padx=10, pady=10, fill='x', expand=True)
-
 
 # email
 email_label = ttk.Label(signin, text="Email Address:")
@@ -44,6 +46,13 @@ password_label.pack(fill='x', expand=True)
 
 password_entry = ttk.Entry(signin, textvariable=password, show="*")
 password_entry.pack(fill='x', expand=True)
+
+# number
+number_label = ttk.Label(signin, text="Double:")
+number_label.pack(fill='x', expand=True)
+
+number_entry = ttk.Entry(signin, textvariable=number)
+number_entry.pack(fill='x', expand=True)
 
 # login button
 login_button = ttk.Button(signin, text="Login", underline=0, command=login_clicked)

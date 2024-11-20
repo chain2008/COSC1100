@@ -3,7 +3,7 @@ from tkinter import ttk
 
 # root window
 root = tk.Tk()
-root.geometry("240x100")
+root.geometry("640x400")
 root.title('Login')
 #root.resizable(0, 0)
 
@@ -29,6 +29,5 @@ password_entry.grid(column=1, row=1, sticky="we", padx=15, pady=15)
 # login button
 login_button = ttk.Button(root, text="Login")
 login_button.grid(column=1, row=3, padx=5, pady=5)
-
 
 root.mainloop()

@@ -1,5 +1,5 @@
 #button = ttk.Button(master, **option) see func.py
-def callback():
+def callback(event=None):
     # do something
     root.quit()
 
