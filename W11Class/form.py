@@ -14,16 +14,19 @@ root.title('Sign In')
 # store email address and password
 email = tk.StringVar()
 password = tk.StringVar()
-number = tk.DoubleVar()
+number = tk.IntVar()
 
 def login_clicked(event=None):
     """ callback when the login button clicked
     """
-    msg = f'You entered email: {email.get()}, password: {password.get()}, Double: {number.get()}'
-    messagebox.showinfo(
-        title='Information',
-        message=msg
-    )
+    try:
+        msg = f'You entered email: {email.get()}, password: {password.get()}, Double: {number.get()}'
+        messagebox.showinfo(
+            title='Information',
+            message=msg
+        )
+    except Exception as exp:
+        print(f"Unknown error: {exp}")
 
 
 # Sign in frame

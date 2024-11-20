@@ -15,26 +15,34 @@ root.title("Durham College - COSC1100")
 
 gui_util.center(root,600,400)
 
-#themed widget
-#https://www.pythontutorial.net/tkinter/tkinter-ttk/
-# Create a style object 
-style = ttk.Style()
-style.configure('TLabel1.TLabel',font=('Helvetica',16),foreground='blue')
-# Configure the style for TLabel
-style.configure('TLabel2.TLabel',font=('Helvetica',14),foreground='blue')
-style.configure('TEntry1.TEntry',font=('Helvetica',16),foreground='blue')
+f1 = tk.Frame(root, background="bisque", height=200)
+f2 = tk.Frame(root, background="pink", height=200)
 
-# Create a label with the custom style 
-email_label = ttk.Label(root, text="Email Address:", style='TLabel1.TLabel')
-email_label.place(x=50, y=50)
-# Typically, we associate the current value of the textbox with a StringVar object
-email = tk.StringVar()
-email.set("cheng.he@durhamcollege.ca")
-email_entry = ttk.Entry(root, 
-    textvariable=email, 
-    width=30,
-    style='TLabel2.TLabel') #30 characters
-email_entry.place(x=200, y=50)
+f1.grid(row=0, column=0, sticky="nsew")
+f2.grid(row=0, column=1, sticky="nsew")
 
-email_entry.focus()
+root.grid_columnconfigure(0, weight=1)
+root.grid_columnconfigure(1, weight=2)
+
+
+
+download_icon = tk.PhotoImage(file='./W11Class/assets/export_small.png')
+#image = download_icon.resize((100, 100))
+btn = ttk.Button(
+   f2,
+   text="Demo Button",
+   image=download_icon,
+   compound=tk.LEFT
+)
+btn.place(x=50, y=5, width=200, height=100)
+
+#image = download_icon.resize((100, 100))
+btn2 = ttk.Button(
+   root,
+   text="Demo Button",
+   image=download_icon,
+   compound=tk.LEFT
+)
+btn2.place(x=50, y=5, width=200, height=100)
+
 root.mainloop()
