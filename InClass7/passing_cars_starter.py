@@ -1,8 +1,9 @@
-# Author: Kyle Chapman
-# Date: March 29, 2023
-# Description:
-# This program uses a tkinter UI to help someone determine whether
-# they should pass another car.
+"""
+In Class 7: Passing car
+Author: Cheng He
+Date: 2024-11-22
+Version: 1
+"""
 
 import tkinter as tk
 from tkinter import ttk
@@ -33,6 +34,8 @@ output = tk.StringVar()
 entry_speed_1 = ttk.Entry(window, textvariable=speed_1, width=30) #30 characters
 entry_speed_2 = ttk.Entry(window, textvariable=speed_2, width=30) #30 characters
 label_output = ScrolledText(window, height=5)
+# Make the ScrolledText read-only
+#label_output.config(state=tk.DISABLED)
 
 def calculate(event= None):
     try:
@@ -78,7 +81,7 @@ btn_reset = ttk.Button(
    compound=tk.LEFT,
    command=reset
 )
-util.layout(window, label_1=label_1, label_2=label_2, \
+util.layout_grid(window, label_1=label_1, label_2=label_2, \
             entry_speed_1=entry_speed_1,entry_speed_2=entry_speed_2, \
             label_output=label_output,
             btn_calculation=btn_calculation,btn_reset=btn_reset)

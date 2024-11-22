@@ -1,4 +1,9 @@
-def layout(master, **widgets):
+"""Module utlities"""
+
+def layout_grid(master, **widgets):
+    """
+    layout widgets.
+    """
     master.grid_columnconfigure(0, weight=1)
     master.grid_columnconfigure(1, weight=2)
     master.grid_rowconfigure(0, weight=1)
