@@ -86,5 +86,8 @@ util.layout_grid(window, label_1=label_1, label_2=label_2, \
             label_output=label_output,
             btn_calculation=btn_calculation,btn_reset=btn_reset)
 
-
+Hovertip(entry_speed1, "Enter your current speed in km/h.")
+Hovertip(entry_speed2, "Enter your desired speed in km/h.")
+Hovertip(button_calculate, "Click to calculate the time saved.")
+Hovertip(button_reset, "Click to reset the form.")
 window.mainloop()
