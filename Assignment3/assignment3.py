@@ -1,12 +1,5 @@
 # https://docs.python.org/3/library/tkinter.html
 # https://www.pythontutorial.net/tkinter/
-import sys
-import matplotlib
-matplotlib.use('Agg')
-
-import matplotlib.pyplot as plt
-import numpy as np
-
 import tkinter as tk
 from tkinter import ttk
 import util
@@ -56,17 +49,5 @@ util.layout_grid(window,label=label,diameter_entry=diameter_entry,\
     btn_calculate=btn_calculate,btn_clear=btn_clear,btn_exit=btn_exit,\
     result=result)
 # Start the event loop.
-
-
-
-y = np.array([35, 25, 25, 15])
-
-plt.pie(y)
-plt.show() 
-
-#Two  lines to make our compiler able to draw:
-plt.savefig(sys.stdout.buffer)
-sys.stdout.flush()
-
 
 window.mainloop()
