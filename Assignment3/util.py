@@ -61,3 +61,4 @@ def layout_grid(master, **widgets):
     widgets["btn_exit"].grid(row=0, column=2, sticky="nsew")
 
     widgets["result_label"].grid(row=2, column=0, columnspan=2, sticky="nsew")
+    widgets["graph_frame"].grid(row=3, column=0, columnspan=2, sticky="nsew")

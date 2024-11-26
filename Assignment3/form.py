@@ -1,33 +1,42 @@
 import tkinter as tk
 from tkinter import ttk
+import util
+import graph
 
-window = None
-login_button = None
-user_name = tk.StringVar()
+def create_form(master):
+    label = ttk.Label(master, text="Diameter: ")
 
+    diameter = tk.DoubleVar()
+    diameter_entry = ttk.Entry(master, textvariable=diameter)
 
+    control_frame = tk.Frame(master, background="bisque")
+    graph_frame = tk.Frame(master, background="bisque")
+    def calculate(event=None):
+        """calculate pizza slices"""
+        try:
+            slices = util.get_slices(diameter.get())
+            result.set(f"{slices}")
+            graph.pie(graph_frame, slices)
+        except Exception as exp:
+            result.set(exp)
 
-def layout(window):
-    global login_button
-    global username_entry
-    # configure the grid
-    window.columnconfigure(0, weight=1)
-    window.rowconfigure(1, weight=3)
+    btn_calculate = ttk.Button(control_frame,text="Calculate",command=calculate)
 
-    # username
-    username_label = ttk.Label(window, text="Username:")
-    username_label.grid(column=0, row=0, sticky=tk.W, padx=5, pady=5)
+    def clear(event=None):
+        """clear form"""
+        diameter.set(0)
+        result.set("")
+        
+    btn_clear = ttk.Button(control_frame,text="Clear",command=clear)
 
-    username_entry = ttk.Entry(window, textvariable=user_name)
-    username_entry.grid(column=1, row=0, sticky=tk.E, padx=5, pady=5)
+    def exit(event=None):
+        quit()
 
-    # password
-    password_label = ttk.Label(window, text="Password:")
-    password_label.grid(column=0, row=1, sticky=tk.W, padx=5, pady=5)
+    btn_exit = ttk.Button(control_frame,text="Exit",command=exit)
+    result = tk.StringVar()
+    result_label = ttk.Label(master, textvariable=result)
 
-    password_entry = ttk.Entry(window,  show="*")
-    password_entry.grid(column=1, row=1, sticky=tk.E, padx=5, pady=5)
-
-    # login button
-    login_button = ttk.Button(window, text="Login")
-    login_button.grid(column=1, row=3, sticky=tk.E, padx=5, pady=5)
+    util.layout_grid(master,label=label,diameter_entry=diameter_entry,\
+        control_frame=control_frame, graph_frame=graph_frame,
+        btn_calculate=btn_calculate,btn_clear=btn_clear,btn_exit=btn_exit,\
+        result_label=result_label)
