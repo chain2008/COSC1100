@@ -3,7 +3,8 @@ from tkinter import ttk
 import util
 import graph
 
-def create_form(master):
+canvas = None
+def create_form(master):    
     label = ttk.Label(master, text="Diameter: ")
 
     diameter = tk.DoubleVar()
@@ -13,10 +14,14 @@ def create_form(master):
     graph_frame = tk.Frame(master, background="bisque")
     def calculate(event=None):
         """calculate pizza slices"""
+        global canvas
         try:
             slices = util.get_slices(diameter.get())
             result.set(f"{slices}")
-            graph.pie(graph_frame, slices)
+            if canvas is not None:
+                canvas.destroy()
+            canvas = graph.pie(graph_frame, slices)
+            canvas.pack()
         except Exception as exp:
             result.set(exp)
 

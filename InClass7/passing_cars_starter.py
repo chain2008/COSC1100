@@ -1,13 +1,12 @@
 """
 In Class 7: Passing car
 Author: Cheng He
-Date: 2024-11-22
-Version: 1
+Date: 2024-11-26
+Version: 2
 """
 
 import tkinter as tk
 from tkinter import ttk
-from tkinter.scrolledtext import ScrolledText
 from idlelib.tooltip import Hovertip
 
 import util
@@ -33,11 +32,11 @@ speed_2 = tk.DoubleVar(value = 0)
 output = tk.StringVar()
 entry_speed_1 = ttk.Entry(window, textvariable=speed_1, width=30) #30 characters
 entry_speed_2 = ttk.Entry(window, textvariable=speed_2, width=30) #30 characters
-label_output = ScrolledText(window, height=5)
+label_output = ttk.Label(window, textvariable=output, wraplength=300)
 # Make the ScrolledText read-only
 #label_output.config(state=tk.DISABLED)
 
-def calculate(event= None):
+def calculate(event=None):
     try:
         # Get the value from entry_speed_1 and treat it as a number.
         speed_one = speed_1.get()
@@ -55,15 +54,13 @@ def calculate(event= None):
             "km/h to " + str(round(high_speed, 1)) + \
             "km/h can gain you " + str(round(speed_difference_seconds, 2)) + \
             " kilometres per minute.")
-        label_output.delete('1.0', tk.END)
-        label_output.insert(tk.END,output.get())
 
     # If they don’t both have numbers:
     except Exception as exp:
         # Show an error message in the output labels
         output.set(f"Error: {exp}.")
 
-def reset():
+def reset(event=None):
     speed_1.set(0)
     speed_2.set(0)
     output.set("")
@@ -71,13 +68,13 @@ def reset():
 
 btn_calculation = ttk.Button(
    window,
-   text="Calculate",
-   compound=tk.LEFT,
+   text="Calculate", underline=0,
    command=calculate
 )
+window.bind('<Alt-c>', calculate)
 btn_reset = ttk.Button(
    window,
-   text="Reset",
+   text="Reset", underline=0,
    compound=tk.LEFT,
    command=reset
 )
@@ -86,8 +83,9 @@ util.layout_grid(window, label_1=label_1, label_2=label_2, \
             label_output=label_output,
             btn_calculation=btn_calculation,btn_reset=btn_reset)
 
-Hovertip(entry_speed1, "Enter your current speed in km/h.")
-Hovertip(entry_speed2, "Enter your desired speed in km/h.")
-Hovertip(button_calculate, "Click to calculate the time saved.")
-Hovertip(button_reset, "Click to reset the form.")
+Hovertip(entry_speed_1, "Enter your current speed in km/h.")
+Hovertip(entry_speed_2, "Enter your desired speed in km/h.")
+Hovertip(btn_calculation, "Click to calculate the time saved.")
+Hovertip(btn_reset, "Click to reset the form.")
+
 window.mainloop()
