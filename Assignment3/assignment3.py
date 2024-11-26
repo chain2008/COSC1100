@@ -15,8 +15,12 @@ diameter_entry = ttk.Entry(window, textvariable=diameter)
 control_frame = tk.Frame(window, background="bisque")
 
 def calculate(event=None):
-    # do something
-    slices = util.get_slices(diameter.get())
+    """calculate pizza slices"""
+    try:
+        slices = util.get_slices(diameter.get())
+        result.set(f"{slices}")
+    except Exception as exp:
+        result.set(exp)
 
 btn_calculate = ttk.Button(
    control_frame,
@@ -41,13 +45,13 @@ btn_exit = ttk.Button(
    text="Exit",
    command=exit
 )
-
-result = ttk.Label(window, text="")
+result = tk.StringVar()
+result_label = ttk.Label(window, textvariable=result)
 
 util.layout_grid(window,label=label,diameter_entry=diameter_entry,\
     control_frame=control_frame,
     btn_calculate=btn_calculate,btn_clear=btn_clear,btn_exit=btn_exit,\
-    result=result)
+    result_label=result_label)
 # Start the event loop.
 
 window.mainloop()

@@ -14,6 +14,9 @@ DIAMETER_CONFIG = {
 
 def get_slices(diameter):
     """get slice out of diameter"""
+    if diameter<6 or diameter>36:
+        raise ValueError("Diameter should be between 6 and 36")
+
     slice_cuts = 0
     for diameter_setting in DIAMETER_CONFIG.items():
         if diameter < diameter_setting[0]:
@@ -57,4 +60,4 @@ def layout_grid(master, **widgets):
     widgets["btn_clear"].grid(row=0, column=1, sticky="nsew")
     widgets["btn_exit"].grid(row=0, column=2, sticky="nsew")
 
-    widgets["result"].grid(row=2, column=0, columnspan=2, sticky="nsew")
+    widgets["result_label"].grid(row=2, column=0, columnspan=2, sticky="nsew")
