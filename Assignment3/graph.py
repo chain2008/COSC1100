@@ -8,7 +8,7 @@ import numpy as np
 def pie(master,slice):
     # the figure that will contain the plot
     fig = Figure(figsize = (5, 5), dpi = 100)
-    plot1 = fig.subplots()
+    plot1 = fig.add_subplot()
     y = np.array([100/slice]*slice)
     plot1.pie(y)
     # creating the Tkinter canvas

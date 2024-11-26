@@ -17,7 +17,7 @@ def create_form(master):
         global canvas
         try:
             slices = util.get_slices(diameter.get())
-            result.set(f"{slices}")
+            result.set(f"can cut into {slices} slices")
             if canvas is not None:
                 canvas.destroy()
             canvas = graph.pie(graph_frame, slices)
