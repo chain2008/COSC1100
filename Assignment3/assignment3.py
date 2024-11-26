@@ -29,8 +29,10 @@ btn_calculate = ttk.Button(
 )
 
 def clear(event=None):
-    # do something
-    pass
+    """clear form"""
+    diameter.set(0)
+    result.set("")
+    
 btn_clear = ttk.Button(
    control_frame,
    text="Clear",
