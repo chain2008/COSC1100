@@ -43,9 +43,9 @@ def layout_grid(master, **widgets):
     """
     master.grid_columnconfigure(0, weight=1)
     master.grid_columnconfigure(1, weight=1)
-    master.grid_rowconfigure(0, weight=1)
-    master.grid_rowconfigure(1, weight=1)
-    master.grid_rowconfigure(2, weight=3)
+    #master.grid_rowconfigure(0, weight=1)
+    #master.grid_rowconfigure(1, weight=1)
+    #master.grid_rowconfigure(2, weight=3)
 
 
     widgets["label"].grid(row=0, column=0, sticky="nsew")

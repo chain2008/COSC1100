@@ -3,15 +3,13 @@
 import tkinter as tk
 from tkinter import ttk
 import form
-
+import util
 
 window = tk.Tk()
 window.title("Pizza Cutter")
 
-frame1 = ttk.Frame(window)
+form.create_form(window)
 
-form.create_form(frame1)
-frame1.pack()
-
+util.center(window, 500, 550)
 # Start the event loop.
 window.mainloop()
