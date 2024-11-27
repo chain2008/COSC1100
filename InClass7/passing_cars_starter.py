@@ -25,8 +25,13 @@ window.minsize(width = WINDOW_MIN_WIDTH, height = WINDOW_MIN_HEIGHT)
 
 window.title("Should I Pass?")
 
-label_1 = ttk.Label(window, text="Your Speed")
-label_2 = ttk.Label(window, text="Target Speed")
+style = ttk.Style()
+style.configure('TLabel1.TLabel',font=('Helvetica',8),foreground='light gray')
+# Configure the style for TLabel
+style.configure('TLabel2.TLabel',font=('Helvetica',16),foreground='black')
+
+label_1 = ttk.Label(window, text="Your Speed", style='TLabel1.TLabel')
+label_2 = ttk.Label(window, text="Target Speed", style='TLabel2.TLabel')
 speed_1 = tk.DoubleVar(value = 0)
 speed_2 = tk.DoubleVar(value = 0)
 output = tk.StringVar()

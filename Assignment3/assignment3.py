@@ -1,7 +1,6 @@
 # https://docs.python.org/3/library/tkinter.html
 # https://www.pythontutorial.net/tkinter/
 import tkinter as tk
-from tkinter import ttk
 import form
 import util
 
