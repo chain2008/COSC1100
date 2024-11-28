@@ -10,16 +10,15 @@ def create_form(master):
     diameter = tk.DoubleVar()
     diameter_entry = ttk.Entry(master, textvariable=diameter)
 
-    control_frame = tk.Frame(master, background="bisque")
-    graph_frame = tk.Frame(master, background="bisque")
+    control_frame = tk.Frame(master)
+    graph_frame = tk.Frame(master)
     def calculate(event=None):
         """calculate pizza slices"""
         global canvas
         try:
+            clear_graph()
             slices = util.get_slices(diameter.get())
             result.set(f"can cut into {slices} slices")
-            if canvas is not None:
-                canvas.destroy()
             canvas = graph.pie(graph_frame, slices)
             canvas.pack()
         except Exception as exp:
@@ -27,10 +26,17 @@ def create_form(master):
 
     btn_calculate = ttk.Button(control_frame,text="Calculate",command=calculate)
 
+    def clear_graph():
+        global canvas
+        if canvas is not None:
+            canvas.destroy()
+            canvas = None
+
     def clear(event=None):
-        """clear form"""
+        """clear form"""        
         diameter.set(0)
         result.set("")
+        clear_graph()
         
     btn_clear = ttk.Button(control_frame,text="Clear",command=clear)
 
